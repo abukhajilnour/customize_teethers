@@ -1,0 +1,21 @@
+You have a new message:
+
+
+<h2>Message Details:</h2>
+
+&nbsp;&nbsp;<strong>From:</strong> <%= @contact.name.capitalize %>,<br>
+&nbsp;&nbsp;<strong>Email:</strong> <%= @contact.email.capitalize %><br>
+
+<!--  --><br><br>
+
+&nbsp;&nbsp;<strong>The message is: </strong>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<% @contact.description.lines.each do |line| %>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= line %></p>
+<% end %><br><br>
+
+&nbsp;&nbsp;<strong>Sent on: </strong><%= @contact.created_at %><br><br>
+
+Thank you!<br>
+<a href="http://www.twinkledreams.ca/">www.twinkledreams.ca</a>
+

@@ -1,0 +1,196 @@
+<div class="mens">    
+  <div class="main">
+     <div class="wrap">
+      <h2 class="head">Teethers</h2>
+        <div class="mens-toolbar">
+          <div class="sort">
+            <div class="sort-by">
+              <h3 id="sort"><label>Sort: </label><span> | </span><span><%= sortable "price" %><span class="caret"></span></span><span> | </span><span><%= sortable "released_at", "Released" %><span class="caret"></span></h3>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="main">
+        <div class="wrap">
+          <% if current_user && current_user.admin? %>
+            <%= link_to "Add new teether",new_teether_path %>
+            <% end %>
+          <div class="section group">
+            <div class="cont span_2_of_3">
+              <div class="top-box">      
+                <% @teethers.each do |t| %>
+               
+                 
+                  <div class="column  <% t.colors.each do |item| %><%= item.name %><% end %><%= t.status %> <%= t.gender %> <% t.types.each do |item| %><%= item.name %><% end %>">
+                  
+                  <div class="col_1_of_3 span_1_of_3"> 
+                    <div class="inner_content clearfix">
+                      <div class="product_image">
+                        <%= link_to t do %>
+                          <%= image_tag t.image.url() , style: "width:100%"%>
+                        <% end %>
+                      </div>
+                      <% if t.status == 'New' %>
+                        <div class="sale-box"><span class="on_sale title_shop">New</span>
+                        </div> 
+                      <% end %>
+                      <% if t.status == 'Sale' %>
+                        <div class="sale-box1"><span class="on_sale title_shop">Sale</span></div> 
+                      <% end %>
+                      <% if t.status == 'Sold Out' %>
+                        <div class="sale-box"><span class="sold title_shop">Sold Out</span></div> 
+                      <% end %>
+                      <div class="price">
+                        <div class="cart-left">
+                          <p class="tit"><%= link_to t.name,t %></p>
+                          <div class="price1">
+                            <% if t.discount.present? %>
+                              <span class="actual">$<%= t.discount%></span>
+                              <span class="reducedfrom">$<%= t.price %></span>
+                            <% else %>
+                              <span class="actual">$<%= t.price %></span>
+                            <% end %>
+                          </div>
+                        </div>
+                        <div class="cart-right"> 
+                        </div>
+                      </div>
+                    </div>       
+                  </div>
+                </div>
+                <% end %>
+           
+              
+              </div>
+            </div>
+          </div>
+        </div>
+<div class="rsingle span_1_of_single">
+           <section  class="sky-form">
+          <h4>Gender</h4>
+            <div id="myBtnContainer">
+          <div class="row row1 scroll-pane"><div class="col col-4">
+          <% @teethers.pluck(:gender).uniq.each.each do |t| %>
+            <button class="btn"  onclick="filterSelection('<%= t %>')">
+                <%= t %></button>
+          <% end %>
+             </div></div>
+            </div>
+           </section>
+           <section  class="sky-form">
+          <h4>Status</h4>
+          <div id="myBtnContainer">
+          <div class="row row1 scroll-pane"><div class="col col-4">
+          <% @teethers.pluck(:status).uniq.each do |t| %>
+            <button class="btn"  onclick="filterSelection('<%= t %>')">
+                <%= t %></button>
+          <% end %>
+             </div></div>
+            </div>
+           </section>
+
+           <section  class="sky-form">
+          <h4>Type</h4>
+          <div id="myBtnContainer">
+          <div class="row row1 scroll-pane"><div class="col col-4">
+           <% Type.all.each do |item| %>
+                <button class="btn"  onclick="filterSelection('<%= item.name %>')"><p class="red"><%= item.name%></p></button></li>
+              <% end %>
+             </div></div>
+            </div>
+           </section>
+           
+         <section  class="sky-form">
+          <h4>Colors</h4>
+          <div id="myBtnContainer">
+            <ul class="color-list">
+         
+              <% @colors.flatten.uniq.each do |item| %>
+                <li><button class="btn"  onclick="filterSelection('<%= item %>')"><span class= "<%= item %>"></span><p class="red"><%= item%></p></button></li>
+              <% end %>
+             </ul></div>
+         </section>
+           <script src="js/jquery.easydropdown.js"></script>
+          </div>
+<div class="clear"></div>
+     </div>
+  </div>
+
+  <script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+<style>
+/* Create three equal columns that floats next to each other */
+.column {
+  display: none;
+   /* Hide all elements by default */
+
+}
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 10px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+</style>

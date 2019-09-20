@@ -1,0 +1,48 @@
+
+    <div class="login">
+       <div class="wrap">
+      <ul class="breadcrumb breadcrumb__t"><%= link_to "Teethers" ,teethers_path, class: "home"%>  / New teether</ul>
+       <div class="content-top">
+        <% if @teether.errors.any? %>
+            <% @teether.errors.full_messages.each do |message| %>
+              <%= message %>
+            <% end %>
+          <% end %>
+
+          <%= form_for @teether do |f| %>
+         <form method="post" action="contact-post.html">
+          <div class="to">
+              <%= f.text_field :name,:required => true  ,placeholder: "Name", class: "text"%>
+              <%= f.text_field :price,:required => true  ,placeholder: "Price", class: "text"%>
+
+              <%= f.text_field :discount ,placeholder: "Discount Price", class: "text"%>
+          </div>
+          <div class="to">
+          <%= f.text_field :quantity,:required => true  ,placeholder: "Quantity", class: "text"%>
+          <%= f.file_field :image %>
+        </div>
+          <div class="to">
+            <div class="text">
+            <%= f.text_area :keywords ,:required => true ,placeholder: "Keywords",rows: "4" ,cols: "50"%>
+            
+          </div>
+        </div>
+          <div class="text">
+            <br><%= f.label :gender %><br />
+            <%= f.select(:gender, ['Male','Female','Both'], {}) %><br><br>
+
+            <br><%= f.label :kind %><br />
+            <%= f.select(:kind, ['Pacifier holder','Pacifier holder + teether','diaper cake'], {}) %><br><br>
+
+            <%= f.label :Status %><br />
+            <%= f.select(:status, ['New','Sale','Sold Out'], {}) %><br><br>
+            
+            <%= f.collection_check_boxes :type_ids, Type.order(:name), :id, :name %>
+            <%= f.text_area :description ,:required => true ,placeholder: "Description",rows: "4" ,cols: "50"%><br>
+                  </div>
+                  <div class="submit">
+                    <%= f.submit %>
+                  </div>
+                  <% end%>
+               </form>
+                <div class="map">

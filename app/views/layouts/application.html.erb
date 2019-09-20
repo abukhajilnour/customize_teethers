@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CustomisedTeethersAndPacifierclipHolder</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <%= favicon_link_tag 'fav.ico' %>
+    <meta name="description" content="twinkle dreams vancouver">
+    <meta name="keywords" content="vancouver teether">
+    <meta name="author" content="customized teether">
+    <meta content="baby pacifierclip">
+    <meta content="canada teether">
+    <meta content="baby name teether">
+  </head>
+  <body>
+  <div class="header-top">
+    <div class="wrap"> 
+      <p><%= image_tag "2.png" %> FREE SHIPPING on orders over CAD $150</p>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="header-bottom">
+    <div class="wrap">
+    <div class="header-bottom-left">
+      <div class="logo">
+        <%= link_to root_path do %><%= image_tag "twinkledreamslogo.png" %><% end %>
+      </div>
+      <div class="menu">
+        <ul class="megamenu skyblue">
+          <li class="active grid"><%= link_to "Home",root_path %></li>  
+          <li class="drop-down"><%= link_to "Teethers",teethers_path %>
+            <div class="dropdown-content">
+              <% Type.all.each do |type| %>
+                <p><%=link_to type.name,type %></p><hr>
+              <% end %>
+            </div>
+          </li>
+        <li><%= link_to "Baby", baby_path %></li>
+        <li><%= link_to "reviews", reviews_path %></li>        
+        <li><%= link_to "Contact",new_contact_path,class: "color7"%></li>
+      </ul>
+      </div>
+    </div>
+    
+     <div class="header-bottom-right">
+         <div class="search"> 
+         <%= form_for "",url: teethers_path, role: "search", method: :get  ,class: "textbox" do %>
+         <%= text_field_tag :search, @search_term,value: "Search", onfocus: "this.value = '';" ,onblur: "if (this.value == '') {this.value = 'Search';}" %>
+              <input type="submit" value="Subscribe" id="submit" name="submit">
+        <% end %>  
+        
+   
+        <div id="response"> </div>
+     </div>
+
+    </div>
+     <div class="clear"></div>
+     </div>
+  </div>  </div>
+    <%= yield %>
+<div class="clear"></div>
+      </div>
+       <div class="clear"></div>
+       </div>
+    </div>
+
+  <div class="footer">
+    <div class="footer-top">
+      <div class="wrap">
+        <div class="section group example">
+        <div class="col_1_of_2 span_1_of_2">
+          <ul class="f-list">
+            <li><%= image_tag "2.png", width: "90"%><span class="f-text">Free Shipping on orders over $150</span><div class="clear"></div></li>
+          </ul>
+        </div>
+        <div class="col_1_of_2 span_1_of_2">
+          <ul class="f-list">
+            <li><%= image_tag "3.png"%><span class="f-text"><a href="tel:+1-778-903-5005">Call us! +1-778-903-5005 </a></span><div class="clear"></div></li>
+          </ul>
+        </div>
+        <div class="clear"></div>
+          </div>
+      </div>
+    </div>
+    <div class="footer-middle">
+      <div class="wrap">
+        <div class="section group example">
+        <div class="col_1_of_f_1 span_1_of_f_1">
+         <div class="section group example">
+           <div class="col_1_of_f_2 span_1_of_f_2">
+              <h3>Facebook</h3>
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+            <div class="like_box">  
+              <div class="fb-like-box" data-href="https://www.facebook.com/TwinkleDreamsBaby/" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
+            </div>
+          </div>
+          <div class="col_1_of_f_2 span_1_of_f_2">
+            <h3>Information</h3>
+            <ul class="f-list1">
+                <li><a href="#">Choose one of our items </a></li>
+                    <li><a href="#">Email us of the name</a></li>
+                    <li><a href="#">We will send you picture of it after it's done</a></li>
+                    <li><a href="#">If confirm you can pick it up from our address or we can ship it for extra cost</a></li>
+                    <li><a href="#">We accept etransfer and cash </a></li>
+                </ul>
+         </div>
+        <div class="clear"></div>
+          </div>
+       </div>
+       <div class="col_1_of_f_1 span_1_of_f_1">
+         <div class="section group example">
+         
+         <div class="col_1_of_f_2 span_1_of_f_2">
+           <h3>Contact us</h3>
+            <div class="company_address">
+                    <p>8180 Granvile Ave, Richmond</p>
+                    <p>Canada</p>
+                <p>Phone:(+1) 778 903 5005</p>
+              <p>Email: <span>nour@khatib.ca</span></p>
+                
+             </div>
+             <div class="social-media">
+                 <ul>
+                    <li> <span class="simptip-position-bottom simptip-movable" data-tooltip="Google"><a href="https://www.google.ca/search?q=Twinkle+Dreams+Baby+Vancouver+customized+Teethers+and+diaper+cake&ludocid=2545759152875873513&lsig=AB86z5Ug6xv3cmH-9wf1smJlk4q_#fpstate=lie" target="_blank"> </a></span></li>
+                    <li><span class="simptip-position-bottom simptip-movable" data-tooltip="Instagram"><a href="https://www.instagram.com/twinkledreamsbaby/" target="_blank"> </a> </span></li>
+                    <li><span class="simptip-position-bottom simptip-movable" data-tooltip="Facebook"><a href="https://www.facebook.com/TwinkleDreamsBaby/" target="_blank"> </a></span></li>
+                </ul><br><br><br>
+                <% if user_signed_in? %>
+                  <%= current_user.email %><br>
+                  <%= link_to "Sign Out",destroy_user_session_path, method: :delete %>
+                <% else %>
+                  <%= link_to "Sign in",new_user_session_path %>
+                <% end %>
+             </div>
+        </div>
+        <div class="clear"></div>
+        </div>
+       </div>
+      <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="wrap">
+                  <div class="copy">
+                 <p>Web Designed by <%= mail_to "nour@khatib.ca?subject=petraauto.com" do %>
+            NourTech
+    <% end %></p>
+                </div>
+           <div class="f-list2">
+        <ul>
+          <li class="active"><a href="about.html">About Us</a></li> |
+          <li><a href="delivery.html">Delivery & Returns</a></li> |
+          <li><a href="delivery.html">Terms & Conditions</a></li> |
+          <li><a href="contact.html">Contact Us</a></li> 
+        </ul>
+        </div>
+        <div class="clear"></div>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

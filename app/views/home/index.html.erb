@@ -1,0 +1,174 @@
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+    <li data-target="#myCarousel" data-slide-to="4"></li>
+  </ol>
+
+    <!-- Wrapper for slides -->
+  <div class="carousel-inner fwslider">
+
+    <div class="item active">
+      <div class="row">
+        <div class="col-md-3">
+          <%= image_tag "mirabel.jpg",style: "height: 400px;"%>
+        </div>
+        <div class="col-md-3">
+          <%= image_tag "icecream.jpg",style: "height: 400px;"%>
+          
+        </div>
+        <div class="col-md-3">
+          <%= image_tag "giancarlo.jpg",style: "height: 400px;"%>
+        </div>
+        <div class="col-md-3">
+          <%= image_tag "elephant.png",style: "height: 400px;"%>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="row">
+        <div class="col-md-3">
+          <%= image_tag "robbie.jpg",style: "height: 400px;"%>
+        </div>
+        <div class="col-md-3">
+          <%= image_tag "elephant2.jpg",style: "height: 400px;"%>
+        </div>
+        <div class="col-md-3">
+          <%= image_tag "isa.jpg",style: "height: 400px;"%>
+        </div>
+        <div class="col-md-3">
+          <%= image_tag "oreo.jpg",style: "height: 400px;"%>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+       <div class="row">
+        <div class="col-md-3">
+          <%= image_tag "dayana.jpg",style: "height: 400px;"%>
+        </div>
+        <div class="col-md-3">
+          <%= image_tag "butterfly.jpg",style: "height: 400px;"%>
+        </div>
+        <div class="col-md-3">
+          <%= image_tag "euan2.jpg",style: "height: 400px;"%>
+        </div>
+        <div class="col-md-3">
+          <%= image_tag "squirrel.jpg",style: "height: 400px;"%>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="row">
+        <div class="col-md-3">
+          <%= image_tag "harrison.jpg",style: "height: 400px;"%>
+        </div>
+        <div class="col-md-3">
+          <%= image_tag "elephant3.jpg",style: "height: 400px;"%>
+        </div>
+        <div class="col-md-3">
+          <%= image_tag "brooke.jpg",style: "height: 400px;"%>
+        </div>
+        <div class="col-md-3">
+          <%= image_tag "fox.jpg",style: "height: 400px;"%>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+       <div class="row">
+        <div class="col-md-3">
+          <%= image_tag "cupcake.jpg",style: "height: 400px;"%>
+        </div>
+        <div class="col-md-3">
+          <%= image_tag "eli.jpg",style: "height: 400px;"%>
+        </div>
+        <div class="col-md-3">
+          <%= image_tag "trex.jpg",style: "height: 400px;"%>
+        </div>
+        <div class="col-md-3">
+          <%= image_tag "malcolm.jpg",style: "height: 400px;"%>
+        </div>
+      </div>
+    </div>    
+  </div>
+
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <div class="slidePrev"><span></span></div>
+       
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+     <div class="slideNext"><span></span></div>
+  </a>
+</div>
+
+<div class="main">
+  <div class="wrap">
+    <h2 class="head">Featured Products</h2>
+      <div class="section group">
+        <div class="cont span_2_of_3">
+          <div class="top-box">      
+            <% @teethers.each do |t| %>
+              <div class="column">
+                <div class="col_1_of_3 span_1_of_3"> 
+                  <div class="inner_content clearfix">
+                    <div class="product_image">
+                        <%= link_to t do %>
+                          <%= image_tag t.image.url() , style: "width:100%"%>
+                        <% end %>
+                    </div>
+                      <% if t.status == 'New' %>
+                        <div class="sale-box"><span class="on_sale title_shop">New</span>
+                        </div> 
+                      <% end %>
+                      <% if t.status == 'Sale' %>
+                        <div class="sale-box1"><span class="on_sale title_shop">Sale</span></div> 
+                      <% end %>
+                      <% if t.status == 'Sold Out' %>
+                        <div class="sale-box"><span class="sold title_shop">Sold Out</span></div> 
+                      <% end %>
+                      <div class="price">
+                        <div class="cart-left">
+                          <p class="tit"><%= link_to t.name,t %></p>
+                          <div class="price1">
+                            <% if t.discount.present? %>
+                              <span class="actual">$<%= t.discount%></span>
+                              <span class="reducedfrom">$<%= t.price %></span>
+                            <% else %>
+                              <span class="actual">$<%= t.price %></span>
+                            <% end %>
+                          </div>
+                        </div>
+                        <div class="cart-right"> 
+                        </div>
+                      </div>
+                    </div>       
+                  </div>
+                </div>
+              <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+  <div class="rsingle span_1_of_single">
+    <div class="top-border"> </div>
+      <div class="sidebar-bottom">
+          <h2 class="m_1">Newsletter<br> Signup</h2>
+          <p class="m_text">Check our latest items, sale and news</p>
+          <div class="subscribe">
+           <%= form_for @newsletter do |f| %>
+              <%= f.text_field :email,:required => true  ,placeholder: "Email", class: "textbox"%>
+              <%= f.submit %>
+           <% end %>
+      </div>
+          </div> </div> </div> </div> </div> </div>
+        
+     </div>
+  </div>
+ <link rel="stylesheet" href="css/fwslider.css" media="all">
+     
+      </div>
+     <div class="clear"></div>
+  </div>
+  </div>
+  </div>

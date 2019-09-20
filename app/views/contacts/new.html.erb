@@ -1,0 +1,29 @@
+
+    <div class="login">
+       <div class="wrap">
+      <ul class="breadcrumb breadcrumb__t">Contact Us</ul>
+       <div class="content-top">
+        <% if @contact.errors.any? %>
+            <% @contact.errors.full_messages.each do |message| %>
+              <%= message %>
+            <% end %>
+          <% end %>
+
+          <%= form_for @contact do |f| %>
+         <form method="post" action="contact-post.html">
+          <div class="to">
+              <%= f.text_field :name,:required => true  ,placeholder: "Name", class: "text"%>
+            <%= f.text_field :email,:required => true  ,placeholder: "Email", class: "text"%>
+          </div>
+          <div class="to">
+            <div class="text">
+            <%= f.text_area :description ,:required => true ,placeholder: "Message",rows: "4" ,cols: "50"%>
+            
+          </div>
+        </div>
+                  <div class="submit">
+                    <%= f.submit %>
+                  </div>
+                  <% end%>
+               </form>
+                <div class="map">

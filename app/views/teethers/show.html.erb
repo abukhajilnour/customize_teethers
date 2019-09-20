@@ -1,0 +1,51 @@
+
+<div class="mens">    
+  <div class="main">
+     <div class="wrap">
+      <ul class="breadcrumb breadcrumb__t"><%= link_to "Home", root_path, class: "home" %> / <%= link_to "Teethers", teethers_path, class: "home" %> / <%= @teether.name %></ul>
+      <% if current_user && current_user.admin? %>
+       <%= link_to  edit_teether_path(@teether),class: "btn btn-danger" do %><span class="glyphicon glyphicon-edit"></span> Edit<% end %>  &nbsp;
+        <%= link_to  @teether,class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete this teether?" } do %><span class="glyphicon glyphicon-trash"></span> Delete <% end %>
+        <% end %>
+    <div class="cont span_2_of_3">
+        <div class="grid images_3_of_2">
+          <%= image_tag @teether.image.url()%>
+             <div class="clearfix"></div>
+              </div>
+             <div class="desc1 span_3_of_2">
+              <h3 class="m_3"><%= @teether.name %></h3>
+                 <p class="m_5"><% if @teether.discount.present? %>
+                              <span class="actual">$<%= @teether.discount%></span>
+                              <span class="reducedfrom">$<%= @teether.price %></span>
+                            <% else %>
+                              <span class="actual">$<%= @teether.price %></span>
+                            <% end %>
+                            <!--  <span class="reducedfrom">Rs. 999</span> --></p>
+      
+             <p class="m_text2"><% @teether.description.lines.each do |line| %>
+                <br><%= line %>
+              <% end %> 
+            </p>
+            <p class="m_text2"> Gender: <%= @teether.gender %></p>
+            <p class="m_text2"> Status: <%= @teether.status %></p>
+            <p class="m_text2">Quantity: <%= @teether.quantity %></p>
+            <p class="m_text2">Kind: <%= @teether.kind %></p>
+            <p class="m_text2">Type:
+              <% @teether.types.each do |t| %>
+                <%= link_to t.name,t%><br>
+              <% end %>
+
+            <p class="m_text2">Color:<% for item in @teether.colors%>
+            <p class="red"><span class= "<%= item.name %>"> </span> 
+                <% if current_user && current_user.admin? %>
+                <%= link_to item.name,item%></p><% end %>
+              <% end %></p><br>
+              <% if current_user && current_user.admin? %>
+            <%= link_to "Add Color", controller: :colors, action: :new, id: @teether.id %>
+            <% end %>
+           </div>
+
+
+         <div class="clear"></div>
+
+      

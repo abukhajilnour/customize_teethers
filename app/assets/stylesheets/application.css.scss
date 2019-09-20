@@ -1,0 +1,92 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+.drop-down {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 140px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 10px 10px;
+  z-index: 1;
+   margin-left: 70px;
+  margin-top: 30px
+}
+.dropdown-content a{
+  color: #555555;
+  text-transform: uppercase;
+  padding: 12px 16px 12px 10px;
+}
+.dropdown-content a:hover{
+  background-color: white;
+  text-decoration: none;
+}
+.drop-down:hover .dropdown-content {
+  display: block;
+}
+.social-media a{
+  color: white;
+}
+.skyblue li > a, .skyblue > li.showhide span {
+    color: rgb(85, 85, 85);
+}
+.skyblue>li:hover>a,.skyblue .dropdown li:hover>a{color:#555; background:#ffffff;}
+.show {
+  display: block;
+}
+strong{
+  font-weight: bold;
+}
+#sort a{
+  color: black !important;
+}
+ span .caret{
+    background-image: url(asset-path("down-arrow.png")) no-repeat; 
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px solid;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+ }
+.f-list a{
+  color: white;
+}
+.tit a{
+  color: #777;
+  font-size: 1.2em;
+}
+.span_1_of_3:hover .tit a{
+  color: #FFF;
+  text-decoration: none;
+}
+.header-top p{
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+.header-top img{
+  width: 30px;
+}
+.logo img{
+  width: 160px;
+}
