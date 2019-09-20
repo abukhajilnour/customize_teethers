@@ -1,6 +1,6 @@
 <div class="login">
   <div class="wrap">
-    <ul class="breadcrumb breadcrumb__t"> New Color</ul>
+    <ul class="breadcrumb breadcrumb__t"> Edit Color</ul>
       <div class="content-top">
 
           <% if @color.errors.any? %>       
@@ -10,7 +10,7 @@
           <% end %>
           <%= form_for @color,:url =>{ :action => :create, :id => @teether.id} do |c| %>
             <div class="to">
-              <%= c.text_field :name ,placeholder: "Color Name", class: "text"%>
+              <%= c.select(:name, ['red','blue','yellow','green','brown','black','white','pink','teal','purple','brown','grey','orange'], {}) %>
             </div><br><br><br><br>
             <div class="submit">
               <%= c.submit %>

@@ -10,7 +10,7 @@
           <% end %>
           <%= form_for @color,:url =>{ :action => :create, :id => @teether.id} do |c| %>
             <div class="to">
-              <%= c.select(:name, ['red','blue','yellow','green','brown','black','white','pink','teal','purple','brown','grey'], {}) %>
+              <%= c.select(:name, ['red','blue','yellow','green','brown','black','white','pink','teal','purple','brown','grey','orange'], {}) %>
             </div><br><br><br><br>
             <div class="submit">
               <%= c.submit %>
