@@ -48,9 +48,9 @@
                           <div class="price1">
                             <% if t.discount.present? %>
                               <span class="actual">$<%= t.discount%></span>
-                              <span class="reducedfrom">$<%= t.price %></span>
+                              <span class="reducedfrom">$<%= t.price %> + $0.25 per letter</span>
                             <% else %>
-                              <span class="actual">$<%= t.price %></span>
+                              <span class="actual">$<%= t.price %> + $0.25 per letter</span>
                             <% end %>
                           </div>
                         </div>
