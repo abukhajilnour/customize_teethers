@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+#truck{
+  width: 60px;
+  padding-top: 20px;
+}
 .drop-down {
   position: relative;
   display: inline-block;
