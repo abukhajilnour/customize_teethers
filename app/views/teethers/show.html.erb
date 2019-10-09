@@ -16,7 +16,7 @@
               <h3 class="m_3"><%= @teether.name %></h3>
                  <p class="m_5"><% if @teether.discount.present? %>
                               <span class="actual">$<%= @teether.discount%></span>
-                              <span class="reducedfrom">$<%= @teether.price %></span>
+                              <span class="reducedfrom">$<%= @teether.price %> + $0.25 per letter</span>
                             <% else %>
                               <span class="actual">$<%= @teether.price %> + $0.25 per letter</span>
                             <% end %>
