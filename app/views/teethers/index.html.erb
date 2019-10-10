@@ -29,7 +29,7 @@
                     <div class="inner_content clearfix">
                       <div class="product_image">
                         <%= link_to t do %>
-                          <%= image_tag t.image.url() , style: "width:100%"%>
+                          <%= tag :img,src: t.image.url() , style: "width:100%"%>
                         <% end %>
                       </div>
                       <% if t.status == 'New' %>
