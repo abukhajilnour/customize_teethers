@@ -71,7 +71,7 @@ class TeethersController < ApplicationController
     %w[desc asc].include?(params[:direction]) ? params[:direction] : "desc"
   end
   def teether_attributes
-    teether_attributes = params.require(:teether).permit([:name,:description,:price,:image,:keywords,:status,:quantity,:discount,:kind,{type_ids: []},:gender,:color])
+    teether_attributes = params.require(:teether).permit([:name,:description,:price,:image,:keywords,:status,:quantity,:discount,:kind,{type_ids: []},:gender,:color,:theme])
   end
 
 

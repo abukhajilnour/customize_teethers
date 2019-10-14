@@ -108,7 +108,7 @@
             <ul class="color-list">
          
               <% @colors.flatten.uniq.each do |item| %>
-                <li><button class="btn"  onclick="filterSelection('<%= item %>')"><span class= "<%= item %>"></span><p class="red"><%= item%></p></button></li>
+                <button class="btn"  onclick="filterSelection('<%= item %>')"><span class= "<%= item %>"></span><p class="red"></p></button>
               <% end %>
              </ul></div>
          </section>
