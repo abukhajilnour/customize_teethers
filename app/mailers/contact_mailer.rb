@@ -3,6 +3,6 @@ class ContactMailer < ApplicationMailer
     @contact=contact
 
     # mail to: contact.email
-     mail to: 'nour@khatib.ca', subject: "www.twinkledreams.ca", from: 'nour@khatib.ca'
+     mail to: 'info@twinkledreams.ca', subject: "www.twinkledreams.ca", from: 'nour@khatib.ca'
   end
 end
