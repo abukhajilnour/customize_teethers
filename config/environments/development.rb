@@ -58,7 +58,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
       :address => "smtp.mailgun.org",
       :port => 587,
-      :domain => 'www.twinkledreams.ca',
+      :domain => 'twinkledreams.ca',
       :user_name => 'postmaster@twinkledreams.ca',
       :password => '3a861eb1a2d4ef8db99cb030b8ab2b14-fd0269a6-088fae8d',
       :authentication => :plain,
