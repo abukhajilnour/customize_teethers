@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ .options h1{
+  color: #eb6296;
+  font-size: 30px;
+  text-align: center;
+  padding: 20px;
+ }
  .options{
   background-color: white;
   padding: 20px;
@@ -25,14 +31,14 @@
 .colu{
   padding: 30px;
 }
-.colu h2{
+.colu h3{
   text-align: center !important;
 }
 .colu a{
     color: #eb6296;
 }
 
-.colu h1{
+.colu h2{
   text-align: center;
   font-size: 30px;
   padding: 20px;
