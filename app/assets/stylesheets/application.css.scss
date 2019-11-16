@@ -13,6 +13,88 @@
  *= require_tree .
  *= require_self
  */
+ .options{
+  background-color: white;
+  padding: 20px;
+ }
+.options img{
+  border-radius: 50%;
+  border: 5px solid #eb6296;
+  height: 300px;
+}
+.colu{
+  padding: 30px;
+}
+.colu h2{
+  text-align: center !important;
+}
+.colu a{
+    color: #eb6296;
+}
+
+.colu h1{
+  text-align: center;
+  font-size: 30px;
+  padding: 20px;
+  text-decoration-style: uppercase
+}
+.butterfly h2{
+    margin: 20px;
+    color: #eb6296;
+    text-align: center;
+    font-size: 35px;
+  }
+.butterfly h3{
+  line-height: 1.5;
+    color: #777;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 200;
+  
+}
+.company_address a{
+  color: white;
+}
+.lacie{
+  background: url(asset-path("lacie.jpg")) no-repeat fixed;
+  background-position: center;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+.lacie h3{
+  padding: 60px;
+  font-size: 25px;
+  text-align: center;
+  color: white;
+}
+#welcome{
+  text-align: center;
+  padding-top: 60px;
+  background-color: white;
+}
+#welcome h1{
+  font-size: 40px;
+  font-family: arial;
+  color:#00e8f5;
+}
+#welcome h2{
+  font-size: 20px;
+  font-family: arial;  
+  border-bottom: 4px solid #eb6296;
+  border-bottom: 7px;
+  line-height: 48px;
+  // text-decoration: underline;
+  text-decoration-color: #eb6296;
+  text-decoration-style: solid ;
+}
+#welcome h3{
+  font-size: 18px;
+  text-align: left;
+  line-height: 30px; 
+}
 #truck{
   width: 60px;
   padding-top: 20px;

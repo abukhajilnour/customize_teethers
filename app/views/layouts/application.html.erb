@@ -17,6 +17,7 @@
     <meta content="baby name teether">
   </head>
   <body>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54517731358aab10" async="async"></script>
   <div class="header-top">
     <div class="wrap"> 
       <p><%= image_tag "2.png" %> FREE SHIPPING on orders over CAD $150</p>
@@ -33,11 +34,11 @@
         <ul class="megamenu skyblue">
           <li class="active grid"><%= link_to "Home",root_path %></li>  
           <li class="drop-down"><%= link_to "Teethers",teethers_path %>
-            <div class="dropdown-content">
+            <!-- <div class="dropdown-content">
               <% Type.all.each do |type| %>
                 <p><%=link_to type.name,type %></p><hr>
               <% end %>
-            </div>
+            </div> -->
           </li>
         <li><%= link_to "Baby", baby_path %></li>
         <li><%= link_to "reviews", reviews_path %></li>        
@@ -123,10 +124,10 @@
          <div class="col_1_of_f_2 span_1_of_f_2">
            <h3>Contact us</h3>
             <div class="company_address">
-                    <p>8180 Granvile Ave, Richmond</p>
-                    <p>Canada</p>
-                <p>Phone:(+1) 778 903 5005</p>
-              <p>Email: <span>nour@khatib.ca</span></p>
+                <p>8180 Granvile Ave, Richmond, BC</p>
+                <p>Canada</p>
+                <p>Phone: <a href="tel:+1-778-903-5005">(+1) 778 903 5005</a></p>
+                <p>Email: <span><%= mail_to "nour@khatib.ca?subject=petraauto.com" do %>nour@khatib.ca<% end %></span></p>
                 
              </div>
              <div class="social-media">
@@ -153,7 +154,7 @@
     <div class="footer-bottom">
       <div class="wrap">
                   <div class="copy">
-                 <p>Web Designed by <%= mail_to "nour@khatib.ca?subject=petraauto.com" do %>
+                 <p>Web Designed by <%= mail_to "nour@khatib.ca?subject=twinkledreams" do %>
             NourTech
     <% end %></p>
                 </div>
@@ -162,7 +163,7 @@
           <li class="active"><a href="about.html">About Us</a></li> |
           <li><a href="delivery.html">Delivery & Returns</a></li> |
           <li><a href="delivery.html">Terms & Conditions</a></li> |
-          <li><a href="contact.html">Contact Us</a></li> 
+          <li><%= link_to "Contact Us",new_contact_path %></li> 
         </ul>
         </div>
         <div class="clear"></div>

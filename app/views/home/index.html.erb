@@ -111,6 +111,38 @@
     <div class="item">
       <div class="row">
         <div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">
+          <%= image_tag "ph.jpg",style: "height: 400px;"%>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">
+          <%= image_tag "anastasia.jpg",style: "height: 400px;"%>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">
+          <%= image_tag "lion.jpg",style: "height: 400px;"%>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">
+          <%= image_tag "maanea.jpg",style: "height: 400px;"%>
+        </div>
+      </div>
+    </div> 
+    <div class="item">
+      <div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">
+          <%= image_tag "hunter.jpg",style: "height: 400px;"%>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">
+          <%= image_tag "dolphin.jpg",style: "height: 400px;"%>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">
+          <%= image_tag "kyra.jpg",style: "height: 400px;"%>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">
+          <%= image_tag "butt.jpg",style: "height: 400px;"%>
+        </div>
+      </div>
+    </div> 
+    <div class="item">
+      <div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">
           <%= image_tag "ttrex.jpg",style: "height: 400px;"%>
         </div>
         <div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">
@@ -125,64 +157,84 @@
       </div>
     </div>  
   </div>
-
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <div class="slidePrev"><span></span></div>
-       
+    <div class="slidePrev"><span></span></div>
   </a>
   <a class="right carousel-control" href="#myCarousel" data-slide="next">
-     <div class="slideNext"><span></span></div>
+    <div class="slideNext"><span></span></div>
   </a>
 </div>
+<div id="welcome">
 
-<div class="main">
-  <div class="wrap">
-    <h2 class="head">Featured Products</h2>
-      <div class="section group">
-        <div class="cont span_2_of_3">
-          <div class="top-box">      
-            <% @teethers.each do |t| %>
-              <div class="column">
-                <div class="col_1_of_3 span_1_of_3"> 
-                  <div class="inner_content clearfix">
-                    <div class="product_image">
-                        <%= link_to t do %>
-                          <%=  tag :img,src: t.image.url() , style: "width:100%"%>
-                        <% end %>
-                    </div>
-                      <% if t.status == 'New' %>
-                        <div class="sale-box"><span class="on_sale title_shop">New</span>
-                        </div> 
-                      <% end %>
-                      <% if t.status == 'Sale' %>
-                        <div class="sale-box1"><span class="on_sale title_shop">Sale</span></div> 
-                      <% end %>
-                      <% if t.status == 'Sold Out' %>
-                        <div class="sale-box"><span class="sold title_shop">Sold Out</span></div> 
-                      <% end %>
-                      <div class="price">
-                        <div class="cart-left">
-                          <p class="tit"><%= link_to t.name,t %></p>
-                          <div class="price1">
-                            <% if t.discount.present? %>
-                              <span class="actual">$<%= t.discount%></span>
-                              <span class="reducedfrom">$<%= t.price %> + $0.25 per letter</span>
-                            <% else %>
-                              <span class="actual">$<%= t.price %> + $0.25 per letter</span>
-                            <% end %>
-                          </div>
-                        </div>
-                        <div class="cart-right"> 
-                        </div>
-                      </div>
-                    </div>       
-                  </div>
-                </div>
-              <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
+  <h1><%= image_tag "baby1.jpg" ,width: "120px" %> Welcome To Twinkle Dreams Baby<%= image_tag "baby2.jpg" ,width: "120px" %></h1>
+  <h2>Customized Baby Teething accessories</h2><br><br>
+</div>
+<div class="lacie">
+<div class="container">
+    <h3>Customized Baby Teethers and Pacifier Holder<br><br>
+      Beautiful colors, handmade in a unique modern design.<br> Extra safe innovative design to insure beads and clip will not come apart.<br> Soft, tactile material for sensory development, gum massage and teething relief.<br><br>
+
+100% NON TOXIC, RUST FREE AND EASY TO CLEAN:<br><br>
+
+High-Quality materials that are 100% BPA free,
+
+FDA approved,100% food grade material, CPSIA/CPSC approved.<br><br>
+
+No odor or taste.
+
+   
+ 
+</div>
+</div>
+<br><br><br>
+
+<div class="container butterfly">
+  <div class="row">
+    <div class="col-md-6">
+      <%= image_tag "necklace.jpg" %>
+    </div>
+    <div class="col-md-6">
+      <h2><br>Style and Cute Baby Teething Accessories</h2> <br>
+        <h3>Twinkle Dreams teethers accessories to chew on is sometimes one of the only natural teething remedies baby really needs to get through the pain of teething.<br> There are lots of options for teething toys that are also safe and non-toxic.</h3>
+
+    </div>
+  </div>
+</div></div></div>
+
+<div class="options">
+  <div class="container">
+  <div class="col-md-4 colu">
+    <%= image_tag "funny.jpg"%>
+      <h1>Funny Pacifier</h1>
+      <h2><%= link_to "See More...",teethers_path %></h2>
+  </div>
+  <div class="col-md-4 colu">
+    <%= image_tag "teether.jpg"%>
+      <h1>Custom Teether</h1>
+      <h2><%= link_to "See More...",teethers_path %></h2>
+  </div>
+  <div class="col-md-4 colu">
+    <%= image_tag "pc.jpg"%>
+      <h1>Pacifier Holder</h1>
+      <h2><%= link_to "See More...",teethers_path %></h2>
+  </div>
+    <div class="col-md-4 colu">
+    <%= image_tag "fruit.jpg"%>
+      <h1>Fruit Pacifier</h1>
+      <h2><%= link_to "See More...",teethers_path %></h2>
+  </div>
+  <div class="col-md-4 colu">
+    <%= image_tag "neck.jpg"%>
+      <h1>Necklace Set</h1>
+      <h2><%= link_to "See More...",teethers_path %></h2>
+  </div>
+      <div class="col-md-4 colu">
+    <%= image_tag "banan.jpg"%>
+      <h1>Banana Brush</h1>
+      <h2><%= link_to "See More...",teethers_path %></h2>
+  </div>
+</div></div></div>
+<!-- 
   <div class="rsingle span_1_of_single">
     <div class="top-border"> </div>
       <div class="sidebar-bottom">
@@ -195,7 +247,7 @@
            <% end %>
       </div>
           </div> </div> </div> </div> </div> </div>
-        
+         -->
      </div>
   </div>
  <link rel="stylesheet" href="css/fwslider.css" media="all">
