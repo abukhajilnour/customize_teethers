@@ -1,0 +1,9 @@
+<hr><div class="container">
+
+  <% @contact.all.each do |c| %>
+    <%= c.name %><br>
+    <%= c.email %><br>
+    <%= c.description %><br><hr>
+  <% end %>
+
+</div>
