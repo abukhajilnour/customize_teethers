@@ -5,7 +5,7 @@
         <div class="mens-toolbar">
           <div class="sort">
             <div class="sort-by">
-              <h3 id="sort"><label>Sort: </label><span> | </span><span><%= sortable "price" %><span class="caret"></span></span><span> | </span><span><%= sortable "released_at", "Released" %><span class="caret"></span></h3>
+              <h3 id="sort"><label>Sort: </label><span> | </span><span><%= link_to "price",:sort => "price" %><span class="caret"></span></span><span> | </span><span><%= sortable "released_at", "Released" %><span class="caret"></span></h3>
             </div>
           </div>
           <div class="clear"></div>
