@@ -4,7 +4,7 @@ class TeethersController < ApplicationController
   before_action :find_teether, only: [:destroy,:edit,:update,:show]
 
   def index
-    @teethers= Teether.order(sort_column + " " + sort_direction)
+    @teethers= Teether.order(sort_column + ' ' + sort_direction)
     @colors = Array.new
     @types = Array.new
     @teethers.each {|t| @types << t.types.pluck(:name) }
@@ -63,13 +63,15 @@ class TeethersController < ApplicationController
   def find_teether
     @teether = Teether.find(params[:id])
   end
+
   def sort_column
     Teether.column_names.include?(params[:sort]) ? params[:sort] : "name"
   end
-  
+
   def sort_direction
-    %w[desc asc].include?(params[:direction]) ? params[:direction] : "desc"
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
+
   def teether_attributes
     teether_attributes = params.require(:teether).permit([:name,:description,:price,:image,:keywords,:status,:quantity,:discount,:kind,{type_ids: []},:gender,:color,:theme])
   end

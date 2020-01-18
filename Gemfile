@@ -71,3 +71,4 @@ end
 gem "devise"
 gem 'aws-sdk'
 gem "paperclip"
+
