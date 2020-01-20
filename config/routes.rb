@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get "/baby" => "home#baby"
   get "/terms" => "home#terms"
   get "/reviews" => "home#reviews"
+  get "/testamonials" => "home#testamonials"
 end
