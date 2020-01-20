@@ -13,10 +13,10 @@ class TeethersController < ApplicationController
       @search_term = params[:search]
       @teethers= @teethers.search_by(@search_term)
     end
-          if params[:type_id]
-        @types = Typation.where(type_id: params[:type_id])
-        @teethers = @types.map(&:teether)
-      end
+    if params[:type_id]
+      @types = Typation.where(type_id: params[:type_id])
+      @teethers = @types.map(&:teether)
+    end
   end
 
   def create
