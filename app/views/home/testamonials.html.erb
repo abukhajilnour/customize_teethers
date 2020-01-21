@@ -1,22 +1,24 @@
-<div class = "container"><br><br><br><br><br><br>
-  <div id="google-reviews"></div>
-
-  <link rel="stylesheet" href="https://cdn.rawgit.com/stevenmonson/googleReviews/master/google-places.css">
-
- <script src="https://cdn.rawgit.com/stevenmonson/googleReviews/6e8f0d79/google-places.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAv1YhiH1arU_wU3QctR2wxW_w5129tRGo&signed_in=true&libraries=places"></script>
+<div class = "container">
+  <div id="google-reviews"><br><br><br><br><br><br></div> 
 
 
-  <script>
-  jQuery(document).ready(function( $ ) {
-     $("#google-reviews").googlePlaces({
-          placeId: 'ChIJO9DdCggLhlQR6aTdJnZaVCM' //Find placeID @: https://developers.google.com/places/place-id
-        , render: ['reviews']
-        , min_rating: 4
-        , max_rows:4
-     });
-  });
-  </script>
+<link rel="stylesheet" href="https://cdn.rawgit.com/stevenmonson/googleReviews/master/google-places.css">
+
+<script src="https://cdn.jsdelivr.net/gh/stevenmonson/googleReviews@6e8f0d794393ec657dab69eb1421f3a60add23ef/google-places.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCXowqbu1iKGnOYwWwkMwhk5VDnh16FIp4&signed_in=true&libraries=places"></script>
+
+<script>
+jQuery(document).ready(function( $ ) {
+   $("#google-reviews").googlePlaces({
+        placeId: 'ChIJO9DdCggLhlQR6aTdJnZaVCM' //Find placeID @: https://developers.google.com/places/place-id
+      , render: ['reviews']
+      , min_rating: 4
+      , max_rows:4
+   });
+});
+</script>
+
+
 
 
 </div>
