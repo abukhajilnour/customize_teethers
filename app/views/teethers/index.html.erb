@@ -47,8 +47,8 @@
                           <p class="tit"><%= link_to t.name,t %></p>
                           <div class="price1">
                             <% if t.discount.present? %>
-                              <span class="actual">$<%= t.discount%></span>
-                              <span class="reducedfrom">$<%= t.price %> + $0.25 per letter</span>
+                              <span class="actual">$<%= t.discount%> + $0.25 per letter</span>
+                              <span class="reducedfrom">$<%= t.price %></span>
                             <% else %>
                               <span class="actual">$<%= t.price %> + $0.25 per letter</span>
                             <% end %>
