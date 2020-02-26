@@ -4,7 +4,7 @@ class TeethersController < ApplicationController
   before_action :find_teether, only: [:destroy,:edit,:update,:show]
 
   def index
-    @teethers= Teether.order(sort_column + ' ' + sort_direction)
+    @teethers= Teether.all.order(sort_column + ' ' + sort_direction)
     @colors = Array.new
     @types = Array.new
     @teethers.each {|t| @types << t.types.pluck(:name) }
