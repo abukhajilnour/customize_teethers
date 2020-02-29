@@ -6,8 +6,7 @@ class TeethersController < ApplicationController
   def index
     @teethers= Teether.all.order(sort_column + ' ' + sort_direction)
     @colors = Array.new
-    @types = Array.new
-   
+
     if params[:search]
       @search_term = params[:search]
       @teethers= @teethers.search_by(@search_term)
