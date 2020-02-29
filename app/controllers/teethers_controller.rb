@@ -7,8 +7,7 @@ class TeethersController < ApplicationController
     @teethers= Teether.all.order(sort_column + ' ' + sort_direction)
     @colors = Array.new
     @types = Array.new
-    @teethers.each {|t| @types << t.types.pluck(:name) }
-    @teethers.each {|t| @colors << t.colors.pluck(:name) }
+   
     if params[:search]
       @search_term = params[:search]
       @teethers= @teethers.search_by(@search_term)
