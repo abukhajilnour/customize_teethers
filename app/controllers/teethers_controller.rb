@@ -4,17 +4,12 @@ class TeethersController < ApplicationController
   before_action :find_teether, only: [:destroy,:edit,:update,:show]
 
   def index
-    @teethers= Teether.all.order(sort_column + ' ' + sort_direction)
+    @teethers= Teether.order(sort_column + ' ' + sort_direction)
     @colors = Array.new
-
-    if params[:search]
-      @search_term = params[:search]
-      @teethers= @teethers.search_by(@search_term)
-    end
-    if params[:type_id]
-      @types = Typation.where(type_id: params[:type_id])
-      @teethers = @types.map(&:teether)
-    end
+    @types = Array.new
+    @teethers.each {|t| @types << t.types.pluck(:name) }
+    @teethers.each {|t| @colors << t.colors.pluck(:name) }
+ 
   end
 
   def create
