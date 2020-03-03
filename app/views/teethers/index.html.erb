@@ -5,7 +5,7 @@
         <div class="mens-toolbar">
           <div class="sort">
             <div class="sort-by">
-              <h3 id="sort"><label>Sort: </label><span> | </span><span><%= sortable "price" %><span class="caret"></span></span></h3>
+              <h3 id="sort"><label>Sort: </label><span> | </span><span><%= sortable "money" %><span class="caret"></span></span></h3>
             </div>
           </div>
           <div class="clear"></div>
@@ -46,11 +46,11 @@
                         <div class="cart-left">
                           <p class="tit"><%= link_to t.name,t %></p>
                           <div class="price1">
-                            <% if t.discount.present? %>
-                              <span class="actual">$<%= t.discount%> + $0.25 per letter</span>
-                              <span class="reducedfrom">$<%= t.price %></span>
+                            <% if t.sale.present? %>
+                              <span class="actual">$<%= t.sale%> + $0.25 per letter</span>
+                              <span class="reducedfrom">$<%= t.money %></span>
                             <% else %>
-                              <span class="actual">$<%= t.price %> + $0.25 per letter</span>
+                              <span class="actual">$<%= t.money %> + $0.25 per letter</span>
                             <% end %>
                           </div>
                         </div>
