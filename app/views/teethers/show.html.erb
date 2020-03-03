@@ -9,17 +9,17 @@
         <% end %>
     <div class="cont span_2_of_3">
         <div class="grid images_3_of_2">
-          <%= tag :img,src: @teether.image.url()%>
+          <%= tag :img,src: @teether.image.url(),alt: @teether.name%>
              <div class="clearfix"></div>
               </div>
              <div class="desc1 span_3_of_2">
               <h3 class="m_3"><%= @teether.name %></h3>
-                 <p class="m_5"><% if @teether.discount.present? %>
+                 <p class="m_5"><!--<% if @teether.discount.present? %>
                               <span class="actual">$<%= @teether.discount%>+ $0.25 per letter</span>
                               <span class="reducedfrom">$<%= @teether.price %> </span>
                             <% else %>
                               <span class="actual">$<%= @teether.price %> + $0.25 per letter</span>
-                            <% end %>
+                            <% end %>-->
                             <% if @teether.sale.present? %>
                               <span class="actual">$<%= @teether.sale %>+ $0.25 per letter</span>
                               <span class="reducedfrom">$<%= @teether.money %> </span>
