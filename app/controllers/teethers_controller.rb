@@ -73,7 +73,7 @@ class TeethersController < ApplicationController
   end
 
   def teether_attributes
-    teether_attributes = params.require(:teether).permit([:name,:description,:price,:image,:keywords,:status,:quantity,:discount,:kind,:money,:discount,{type_ids: []},:gender,:color,:theme])
+    teether_attributes = params.require(:teether).permit([:name,:description,:price,:image,:keywords,:status,:quantity,:discount,:kind,:money,:sale,{type_ids: []},:gender,:color,:theme])
   end
 
 
