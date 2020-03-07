@@ -102,7 +102,7 @@
              </div></div>
             </div>
            </section>
-           <br>
+           <br><br><br>
          <section  class="sky-form">
           <h4>Colors</h4>
           <div id="myBtnContainer">
@@ -111,6 +111,18 @@
               <% @colors.flatten.uniq.each do |item| %>
                 <button class="btn"  onclick="filterSelection('<%= item %>')"><span class= "<%= item %>"></span></button>
               <% end %>
+             </ul></div>
+         </section>
+
+         <section  class="sky-form">
+          <h4>Theme</h4>
+          <div id="myBtnContainer">
+            <ul class="color-list">
+         
+              <% @teethers.pluck(:theme).uniq.each do |t| %>
+            <button class="btn"  onclick="filterSelection('<%= t %>')">
+                <%= t %></button>
+          <% end %>
              </ul></div>
          </section>
            <script src="js/jquery.easydropdown.js"></script>
