@@ -17,7 +17,7 @@
     <meta content="baby name teether">
   </head>
   <body>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta  content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 
@@ -70,6 +70,10 @@
     display: block;
     text-align: left;
   }
+  .logo img {
+    width: 100px;
+}
+
 }
 </style>
 
@@ -90,6 +94,7 @@ function myFunction() {
       <div class="clear"></div>
     </div>
   </div>
+  <div class="topnav" id="myTopnav">
   <div class="header-bottom">
     <div class="wrap">
     <div class="header-bottom-left">
@@ -97,7 +102,7 @@ function myFunction() {
         <%= link_to root_path do %><%= image_tag "twinkledreamslogo.png" %><% end %>
       </div>
       
-      <div class="topnav" id="myTopnav">
+      
   <%= link_to "Home",root_path, class: "active" %>
   <%= link_to "Shop",teethers_path %>
   <%= link_to "Baby", baby_path %>
@@ -107,7 +112,7 @@ function myFunction() {
     <i class="fa fa-bars"></i>
   </a>
 </div>
-    </div>
+ 
     
      <div class="header-bottom-right">
          <div class="search"> 
@@ -119,7 +124,7 @@ function myFunction() {
    
         <div id="response"> </div>
      </div>
-
+   </div>
     </div>
      <div class="clear"></div>
      </div>
