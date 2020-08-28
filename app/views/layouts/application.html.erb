@@ -18,12 +18,24 @@
     
   </head>
   <body>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 
-@-ms-viewport{
-  width: device-width;
+@media screen and (max-width : 760px){
+    /*Make dropdown links appear inline*/
+    .topnav {
+        position: static;
+        display: none;
+    }
+    /*Create vertical spacing*/
+    li {
+        margin-bottom: 1px;
+    }
+    /*Make all menu links full width*/
+    ul li, li a {
+        width: 100%;
+    }
 }
 .topnav {
   overflow: hidden;
