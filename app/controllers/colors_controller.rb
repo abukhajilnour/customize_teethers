@@ -33,7 +33,6 @@ class ColorsController < ApplicationController
   end
 
 private
-
   def color_params
     color_params = params.require(:color).permit([:name])
   end
