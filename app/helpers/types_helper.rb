@@ -1,3 +1,0 @@
-module TypesHelper
-  
-end
