@@ -63,7 +63,6 @@ group :development do
   gem "interactive_editor"
   gem "hirb"
   gem "awesome_print"
-  gem 'byebug'
 end
 
 
