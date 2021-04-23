@@ -8,4 +8,4 @@
       <% if current_user && current_user.admin? %>
       <h2><%= link_to  controller: :colors, class: "btn tf-btn btn-danger", action: :edit do %>Edit color <% end %> </h2>
       <%= link_to @color, class: "btn tf-btn btn-default", method: :delete, data: { confirm: "Are you sure you want to delete this color?" } do %>Delete <% end %>
-      <% end %>
+      <% end %>m
