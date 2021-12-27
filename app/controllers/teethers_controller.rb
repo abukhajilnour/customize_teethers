@@ -69,7 +69,7 @@ class TeethersController < ApplicationController
   end
 
   def sort_direction
-    %w[desc asc].include?(params[:direction]) ? params[:direction] : "desc"
+    %w[desc asc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
   def teether_attributes
