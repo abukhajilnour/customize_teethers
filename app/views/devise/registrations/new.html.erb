@@ -3,7 +3,7 @@
        <div class="wrap">
       <ul class="breadcrumb breadcrumb__t">Sign Up</ul>
        <div class="content-top">
-      <h2>Sign up</h2>
+      <h2>Sign up</h2><br>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
@@ -11,7 +11,7 @@
 <div class="to">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "text" %>
-  </div>
+  </div><br>
 
   <div class="field">
     <%= f.label :password %>
@@ -19,7 +19,7 @@
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password", class: "text"  %>
-  </div>
+  </div><br>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />

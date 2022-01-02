@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+a.button, a:link.button, a:visited.button, input[type=submit], input[type=button], button {
+  text-shadow: #0000 0 1px 0 !important;}
  .options h1{
   color: #eb6296;
   font-size: 30px;
@@ -177,6 +179,7 @@ strong{
  }
 .f-list a{
   color: white;
+  text-decoration:none;
 }
 .tit a{
   color: #777;
