@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <script src="https://js.stripe.com/v3/"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <%= favicon_link_tag 'fav.ico' %>
@@ -90,6 +91,26 @@
 }
 
 }
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+  background-color: #c67605;
+}
+#lblCartCount {
+    font-size: 12px;
+    background: #ff0000;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: -10px; 
+}
 </style>
 
 <script>
@@ -123,6 +144,11 @@ function myFunction() {
   <%= link_to "Baby", baby_path %>
   <%= link_to "reviews", reviews_path %>      
   <%= link_to "Contact",new_contact_path,class: "color7"%>
+
+  <%= link_to cards_path do %>
+    <i class="fa" style="font-size:24px">&#xf07a;</i>
+    <span class='badge badge-warning' id='lblCartCount'><%= @cart.size %> </span>
+  <% end %>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
@@ -219,7 +245,7 @@ function myFunction() {
                     <li><span class="simptip-position-bottom simptip-movable" data-tooltip="Facebook"><a href="https://www.facebook.com/TwinkleDreamsBaby/" target="_blank"> </a></span></li>
                 </ul><br><br><br>
                 <% if user_signed_in? %>
-                  <%= current_user.email %><br>
+                  <%= current_user.stripe_customer_id %><br>
                   <%= link_to "Sign Out",destroy_user_session_path, method: :delete %>
                 <% else %>
                   <%= link_to "Sign in",new_user_session_path %>

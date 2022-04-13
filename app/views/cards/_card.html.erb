@@ -1,0 +1,13 @@
+ <%
+
+total_price = 0
+
+@cart.each do |cart|
+  total_price += cart.price # similar to count_sign_in = count_sign_in + user.sign_in_count
+end
+
+
+
+%>
+   
+<%= link_to "#{@cart.size} items with a value of #{total_price }$", cards_path%>

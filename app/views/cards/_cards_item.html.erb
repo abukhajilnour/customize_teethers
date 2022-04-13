@@ -1,0 +1,109 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<style type="text/css">
+	.table>tbody>tr>td, .table>tfoot>tr>td{
+    vertical-align: middle;
+}
+@media screen and (max-width: 600px) {
+    table#cart tbody td .form-control{
+		width:20%;
+		display: inline !important;
+	}
+	.actions .btn{
+		width:36%;
+		margin:1.5em 0;
+	}
+	
+	.actions .btn-info{
+		float:left;
+	}
+	.actions .btn-danger{
+		float:right;
+	}
+	
+	table#cart thead { display: none; }
+	table#cart tbody td { display: block; padding: .6rem; min-width:320px;}
+	table#cart tbody tr td:first-child { background: #333; color: #fff; }
+	table#cart tbody td:before {
+		content: attr(data-th); font-weight: bold;
+		display: inline-block; width: 8rem;
+	}
+	
+	
+	
+	table#cart tfoot td{display:block; }
+	table#cart tfoot td .btn{display:block;}
+	
+}
+</style>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<br>
+<h1 style="text-align: center;">SHOPPING CART</h1>
+<br>
+<div class="container">
+
+	<table id="cart" class="table table-hover table-condensed">
+    				<thead>
+						<tr>
+							<th style="width:22%">Prduct</th>
+							<th style="width:10%">Price</th>						        
+							<th style="width:18%">Engraving Name</th>
+							<th style="width:18%">Engraving Price</th>
+							<th style="width:22%" class="text-center">Subtotal</th>
+							<th style="width:10%">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% total_price =  0 %>
+						<% @cart.each do |item| %>
+						<tr>
+							<td data-th="Product">
+								<div class="row">
+									<div class="col-sm-2 hidden-xs">
+										<%= tag :img,src: item.image ,alt: item.name, :class => "img-responsive" %>
+										</div>
+									<div class="col-sm-10">
+										<h4 class="nomargin"><%= item.name %></h4>
+									</div>
+								</div>
+							</td>
+							<td data-th="Price"><%= item.price %>$</td>
+							<td data-th="Engraving Name">
+									<% x = session[:cart] %> 
+							    <%  x.select {|obj| obj['id']== item.id} %>
+							    <%= engr = x.find {|obj| obj['id']== item.id}['engraving'] %> 
+							</td>
+							<td data-th="Engraving Price">
+								<%= engr_price = engr.to_s.size*0.25 %>$
+							</td>
+							<td data-th="Subtotal" class="text-center"><%= sub_total = engr_price+item.price %>$</td>
+							<% total_price += sub_total %>
+							<td class="actions" data-th="">
+
+							
+						        <%= button_to "Remove Items", remove_from_cart_path(item), method: :delete, :class => 'btn btn-danger btn-sm'%>
+						   							
+							</td>
+						</tr>
+						<% end %>
+						
+					</tbody>
+					<tfoot>
+						<tr>
+
+							<td><%= link_to "Continue Shopping", teethers_path, :class => 'btn btn-warning fa fa-angle-left'%></td>
+							<td colspan="2" class="hidden-xs"></td>
+
+							<td class="hidden-xs text-center"><strong>Total <%= total_price %>$</strong></td>
+							<td><%= link_to "Checkout", new_shipping_path, :class => 'btn btn-success fa fa-angle-right'%></td>
+						</tr>
+					</tfoot>
+				</table>
+				
+</div>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>

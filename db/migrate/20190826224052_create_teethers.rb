@@ -3,7 +3,7 @@ class CreateTeethers < ActiveRecord::Migration[5.2]
     create_table :teethers do |t|
       t.string :name
       t.text :description
-      t.string :price
+      t.decimal :price
 
       t.timestamps
     end

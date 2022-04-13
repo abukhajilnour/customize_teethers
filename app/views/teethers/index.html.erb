@@ -1,7 +1,11 @@
+
+
 <div class="mens">    
   <div class="main">
      <div class="wrap">
       <h2 class="head">Teethers</h2>
+       <div id="card">
+        <%= render 'cards/card' %></div>
         <div class="mens-toolbar">
           <div class="sort">
             <div class="sort-by">
@@ -21,7 +25,6 @@
             <div class="cont span_2_of_3">
               <div class="top-box">      
                 <% @teethers.each do |t| %>
-               
                  
                   <div class="column  <% t.colors.each do |item| %><%= item.name %><% end %><%= t.status %> <%= t.gender %><%= t.theme %> <% t.types.each do |item| %><%= item.name %><% end %>">
                   
@@ -31,6 +34,37 @@
                         <%= link_to t do %>
                           <%= tag :img,src: t.image.url() ,alt: t.name, style: "width:100%"%>
                         <% end %>
+
+                        <% if @cart.include?(t) %>
+                          <%= button_to "Remove from cart", remove_from_cart_path(t), method: :delete %>
+                        <% else %>
+                         
+                          <a class="button" href="#popup1">Add to Cart</a>
+
+                            <div id="popup1" class="overlay">
+                              <div class="popup">
+                                <h2>Enter Name</h2>
+                                <a class="close" href="#">&times;</a>
+                                <div class="content">
+                                  <%= form_for :engraving, url: "teethers/add_to_cart/:id" do |form| %>
+                                    <%= form.text_field :engraving_name, :required => true%>
+                                    <%= form.hidden_field :teethers, value: t.id %>
+
+                                    <%= form.submit  %>
+                                    <%= form.submit "Skip", formnovalidate: true  %>
+
+                                  <% end  %>
+                                  <!-- <input type="text" id="fname" name="fname" class="form-control">
+                                  <button>abc submit</button> -->
+                                 
+                                </div>
+                              </div>
+                            </div>
+                        <% end %>
+
+
+
+
                       </div>
                       <% if t.status == 'New' %>
                         <div class="sale-box"><span class="on_sale title_shop">New</span>
@@ -68,11 +102,12 @@
             </div>
           </div>
         </div>
-<div class="rsingle span_1_of_single">
-           <section  class="sky-form">
+        <div class="rsingle span_1_of_single">
+          <section  class="sky-form">
           <h4>Gender</h4>
             <div id="myBtnContainer">
-          <div class="row row1 scroll-pane"><div class="col col-4">
+          <div class="row row1 scroll-pane">
+            <div class="col col-4">
           <% @teethers.pluck(:gender).uniq.each.each do |t| %>
             <button class="btn"  onclick="filterSelection('<%= t %>')">
                 <%= t %></button>
@@ -92,7 +127,7 @@
             </div>
            </section>
 
-           <section  class="sky-form">
+           <section class="sky-form">
           <h4>Type</h4>
           <div id="myBtnContainer">
           <div class="row row1 scroll-pane"><div class="col col-4">
@@ -205,5 +240,90 @@ for (var i = 0; i < btns.length; i++) {
 .btn.active {
   background-color: #666;
   color: white;
+}
+
+.box {
+  width: 40%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 35px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+.button {
+  font-size: 1em;
+  padding: 10px;
+  color: #fff;
+  border: 2px solid #06D85F;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.button:hover {
+  background: #06D85F;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 3;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #E24D80;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #fff;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
 }
 </style>

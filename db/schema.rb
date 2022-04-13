@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_17_200553) do
+ActiveRecord::Schema.define(version: 2022_03_22_192855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,10 +62,47 @@ ActiveRecord::Schema.define(version: 2020_11_17_200553) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer "quantity"
+    t.integer "product_id"
+    t.integer "order_id"
+    t.decimal "total"
+    t.decimal "unit_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "teether_id"
+    t.index ["teether_id"], name: "index_order_items_on_teether_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.decimal "subtotal"
+    t.decimal "total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "status", default: "card"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "shippings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "first_name"
+    t.text "last_name"
+    t.text "email"
+    t.text "address"
+    t.text "city"
+    t.text "state"
+    t.integer "zip"
+    t.text "address2"
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_shippings_on_order_id"
+  end
+
   create_table "teethers", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.string "price"
+    t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_file_name"
@@ -81,6 +118,8 @@ ActiveRecord::Schema.define(version: 2020_11_17_200553) do
     t.text "theme"
     t.decimal "money"
     t.decimal "sale"
+    t.string "stripe_teether_id"
+    t.string "stripe_price_id"
   end
 
   create_table "typations", force: :cascade do |t|
@@ -108,10 +147,14 @@ ActiveRecord::Schema.define(version: 2020_11_17_200553) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
+    t.string "stripe_customer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "order_items", "teethers"
+  add_foreign_key "orders", "users"
+  add_foreign_key "shippings", "orders"
   add_foreign_key "typations", "teethers"
   add_foreign_key "typations", "types"
 end

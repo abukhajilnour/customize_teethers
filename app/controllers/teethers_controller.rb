@@ -3,7 +3,31 @@ class TeethersController < ApplicationController
   helper_method :sort_column, :sort_direction
   before_action :find_teether, only: [:destroy,:edit,:update,:show]
 
+  def add_to_cart
+    engraving = params[:engraving][:engraving_name] 
+    id = params[:engraving][:teethers].to_i
+    data = {id: id, engraving: engraving}
+    session[:cart] << data unless session[:cart].collect {|obj| obj['id']}.include?(id)
+    # binding.pry
+    # x = session[:cart] 
+    #  x.select {|obj| obj['id']==281}
+    #  x.find {|obj| obj['id']==281}['engraving']
+    redirect_to teethers_path
+  end
+        
+
+  def remove_from_cart
+    x = session[:cart]
+    a = x.find {|obj| obj['id']==params[:id].to_i}
+    session[:cart].delete(a)  
+    # binding.pry
+    # id = params[:id].to_i
+    # session[:cart].delete(id)
+    redirect_to cards_show_path
+  end
+
   def index
+    @order_item = current_order.order_items.new
     @teethers= Teether.order(sort_column + ' ' + sort_direction)
     @colors = Array.new
     @types = Array.new
@@ -17,6 +41,7 @@ class TeethersController < ApplicationController
       @types = Typation.where(type_id: params[:type_id])
       @teethers = @types.map(&:teether)
     end
+
   end
 
   def create
