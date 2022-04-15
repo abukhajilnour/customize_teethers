@@ -13,7 +13,6 @@ class User < ApplicationRecord
     email
   end
 
-  Stripe.api_key = Rails.application.credentials[:stripe][:secret]
 
   after_create do
     customer = Stripe::Customer.create(email: email)
