@@ -1472,6 +1472,7 @@ GEM
     websocket-extensions (0.1.5)
 
 PLATFORMS
+  x86_64-darwin-18
   x86_64-linux
 
 DEPENDENCIES
@@ -1506,4 +1507,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   2.3.3
+   2.3.4
