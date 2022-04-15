@@ -27,7 +27,7 @@ class TeethersController < ApplicationController
   end
 
   def index
-    @order_item = current_order.order_items.new
+    # @order_item = current_order.order_items.new
     @teethers= Teether.order(sort_column + ' ' + sort_direction)
     @colors = Array.new
     @types = Array.new
