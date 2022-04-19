@@ -23,7 +23,7 @@ class ShippingsController < ApplicationController
         order.save
 
         @shipping = Shipping.new(shipping_attributes)
-        @shipping.order_id = Order.last.id
+        @shipping.order_id = order.id
         if @shipping.save
       
         @session = Stripe::Checkout::Session.create({
