@@ -1,8 +1,6 @@
 class Order < ApplicationRecord
-  belongs_to :users
   has_many :order_items
   before_save :set_subtotal
-  has_one :shipping
 
 
 

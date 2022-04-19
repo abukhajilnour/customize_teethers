@@ -1,11 +1,12 @@
 class ShippingsController < ApplicationController
    
   def new
-  	@order_items = current_order.order_items
-  	@shipping = Shipping.new
+    @order_items = current_order.order_items
+    @shipping = Shipping.new
   end
 
   def create
+    
         total_price =  0
           @cart.each do |item|
             x = session[:cart]
@@ -23,7 +24,7 @@ class ShippingsController < ApplicationController
         order.save
 
         @shipping = Shipping.new(shipping_attributes)
-        @shipping.order_id = order.id
+        @shipping.order_id = Order.last.id
         if @shipping.save
       
         @session = Stripe::Checkout::Session.create({
@@ -46,6 +47,8 @@ class ShippingsController < ApplicationController
         cancel_url: cancel_url,
       })
       redirect_to @session.url
+    else
+      render :new
     end
 
   end

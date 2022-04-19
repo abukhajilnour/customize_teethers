@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   resources :types
   resources :contacts
   resources :newsletters
+  post "shippings/create" => "shippings#create", :as => "create"
+  
   resources :shippings
+
   resources :checkout,only:[:index]
   post "teethers/add_to_cart/:id" => "teethers#add_to_cart", :as => "add_to_cart"
   delete "teethers/remove_from_cart/:id", to: "teethers#remove_from_cart", as: "remove_from_cart"

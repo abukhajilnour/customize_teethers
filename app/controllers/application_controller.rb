@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  respond_to :html, :json
+
+
   include ApplicationHelper
   before_action :load_cart
   before_action :authenticate_user!
