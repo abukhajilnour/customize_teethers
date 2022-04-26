@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
 
   include ApplicationHelper
   before_action :load_cart
-  before_action :authenticate_user!
   before_action :initialize_session
   before_action :load_cart 
   def index
@@ -28,5 +27,11 @@ class ApplicationController < ActionController::Base
     # Product.where(id: [1, 2, 3]) => 1, 2
     @cart = Teether.where(id:  session[:cart].collect {|obj| obj['id']} )
   end
+  def authenticate_user!
+    unless user_signed_in?
+    store_location_for(:user, request.url)
+    redirect_to new_user_registration_path
+  end
+end
 
 end

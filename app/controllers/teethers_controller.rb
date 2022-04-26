@@ -1,5 +1,5 @@
 class TeethersController < ApplicationController
-  before_action :authenticate_user!,except: [:index,:show]
+  before_action :authenticate_user!,except: [:index,:show, :add_to_cart,:remove_from_cart]
   helper_method :sort_column, :sort_direction
   before_action :find_teether, only: [:destroy,:edit,:update,:show]
 

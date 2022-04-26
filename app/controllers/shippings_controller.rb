@@ -1,5 +1,5 @@
 class ShippingsController < ApplicationController
-   
+   before_action :authenticate_user!
   def new
     @order_items = current_order.order_items
     @shipping = Shipping.new
